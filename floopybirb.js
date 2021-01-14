@@ -36,30 +36,30 @@ function exeptionsRand(intOrOut,max,min) {
   return randNumber;
 }
 var pipeWalls = {north:undefined,east:undefined,south:undefined,west:undefined};
-var pipx = exeptionsRand("in", myCanvas.width-30, 75);
-var pipy = exeptionsRand("in", myCanvas.height-35,90);
-var pipBotObj = {width:45,height:450, x:pipx ,y:pipy,gap: 40};
-var pipTopObj = {width: 45,height:pipy-(pipBotObj.gap*2), x:pipx,y: 0};
+var pipx = exeptionsRand("in", myCanvas.width-30, 75); //I haven't seen any change after modifying these numbers.
+var pipy = exeptionsRand("in", myCanvas.height-35,90); //Nothing changes here as well.
+var pipBotObj = {width:45,height:450, x:pipx ,y:pipy,gap: 40}; //Sets the bottom pipe's width (which is always the same) and height (which will randomly change). Changing the 'gap' value will change how far apart the pipes are.
+var pipTopObj = {width: 45,height:pipy-(pipBotObj.gap*2), x:pipx,y: 0}; //Does the same as above, but the pipe's height is based on the bottom pipes 'gap' value (in this case, the pipe's height will max out at 40 units above the bottom pipe).
 
 
 var gravity = 0.2; //Sets the gravity pulling the ball to the ground.
 var damping = 0.01; //The rate at which the ball slows down.
 var traction = 0.95; //Will make the ball stop.
 var ballSize = 20; //Sets the circle's radius.
-function drawPipes(){
+function drawPipes(){ //This function is for making sure the pipes aren't drawn off-screen where they are not needed.
     ctx.beginPath();
     if ((pipTopObj.x +pipTopObj.width) == 0) {
-        pipBotObj.x = myCanvas.width;
+        pipBotObj.x = myCanvas.width; //This will make sure that the top pipe isn't drawn off screen.
         pipTopObj.x = myCanvas.width;
-        pipx = exeptionsRand("in", myCanvas.width-30, 75);
-        pipy = exeptionsRand("in", myCanvas.height-75,46);
+        pipx = exeptionsRand("in", myCanvas.width-30, 75); //Changing these numbers don't do anything as far as I can tell.
+        pipy = exeptionsRand("in", myCanvas.height-75,46); //Same goes for these.
       pipBotObj.y = pipy;
       pipTopObj.height = pipy-(pipBotObj.gap*2);
     }
     pipBotObj.x = pipBotObj.x - 1;
     pipTopObj.x = pipTopObj.x - 1;
-    ctx.rect(pipBotObj.x, pipBotObj.y, pipBotObj.width, pipBotObj.height);
-    ctx.rect(pipTopObj.x, pipTopObj.y, pipTopObj.width, pipTopObj.height);
+    ctx.rect(pipBotObj.x, pipBotObj.y, pipBotObj.width, pipBotObj.height); //Draws the bottom pipe based on what is calculated above.
+    ctx.rect(pipTopObj.x, pipTopObj.y, pipTopObj.width, pipTopObj.height); //Draws the top pipe based on what is calculated above.
   ctx.stroke();
 }
 
