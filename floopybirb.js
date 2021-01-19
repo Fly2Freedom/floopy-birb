@@ -7,8 +7,6 @@ var y = myCanvas.height / 2;
 var dx = 10; //These variables will be used later to change the position of the circle.
 var dy = 10; //Changing both of these numbers will also change the speed of the circle (in other words, how many units the circle moves per frame).
 
-
-
 // @function exeptionsRand();
 // @param inOrOut [string] {Expects} ["in","out"]: Tells the function weather or not to use out or in for the ifs
 // @param max [integer] {requires} [max > min] : tells the function when to stop;
@@ -38,7 +36,7 @@ var pipeWalls = {north:undefined,east:undefined,south:undefined,west:undefined};
 var pipx = exeptionsRand("in", myCanvas.width-30, 75); //I haven't seen any change after modifying these numbers.
 var pipy = exeptionsRand("in", myCanvas.height-35,90); //Nothing changes here as well.
 var pipBotObj = {width:45,height:450, x:pipx ,y:pipy,gap: 40}; //Sets the bottom pipe's width (which is always the same) and height (which will randomly change). Changing the 'gap' value will change how far apart the pipes are.
-var pipTopObj = {width: 45,height:pipy-(pipBotObj.gap*2), x:pipx,y: 0}; //Does the same as above, but the pipe's height is based on the bottom pipes 'gap' value (in this case, the pipe's height will max out at 40 units above the bottom pipe).
+var pipTopObj = {width:45,height:pipy-(pipBotObj.gap*2), x:pipx,y: 0}; //Does the same as above, but the pipe's height is based on the bottom pipes 'gap' value (in this case, the pipe's height will max out at 40 units above the bottom pipe).
 
 function drawPipes(){ //This function is for making sure the pipes aren't drawn off-screen where they are not needed.
     ctx.beginPath();
@@ -79,14 +77,14 @@ drawPipes();
     dx = -dx * damping; //The ball's x direction will be flipped, and it will bounce a specific distance (damping).
   }
 
-  if(y + dy > myCanvas.height - ballSize || y + dy < ballSize) { //If the circle's y position exceeds the height of the canvas...
+  if (y + dy > myCanvas.height - ballSize || y + dy < ballSize) { //If the circle's y position exceeds the height of the canvas...
      dy = -dy * damping; //Its y direction will be flipped, and it's speed will decrease.
     //dx *= traction;
    }
 
   dy += gravity; //Adds the gravity value to the ball's dy value, giving it a artificial force of gravity.
 
-  //x += dx;
+  //x += dx; is not needed because the ball will never hit the side walls.
 
   if (((y + dy) + ballSize) <= 300) {
     y += dy;
