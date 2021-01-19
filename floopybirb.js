@@ -15,8 +15,8 @@ var needed = [];
 // @param inOrOut [string] {Expects} ["in","out"]: Tells the function weather or not to use out or in for the ifs
 // @param max [integer] {requires} [max > min] : tells the function when to stop;
 // @param min [integer] {requires} [min < max] : tells the function when to start;
-function exeptionsRand(intOrOut,max,min) {
-    var inBool = true;
+function exeptionsRand(intOrOut,max,min) {//this function allows you to go between the tubes.
+    var inBool = true;//this variable 
   while (inBool == true) {
   var randNumber = Math.floor(Math.random()*(max-min))+min;
   if (intOrOut == "in") {
