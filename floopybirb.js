@@ -105,10 +105,10 @@ function keyPress(e) { //Function that will play out when a key is pressed (e is
     }
 }
 function collisionDetect() {
-  if (x >= pipBotObj.x && y >= pipBotObj.y) {
-    console.log("Game Over!");
-  }
-  if (x >= pipTopObj.y && y >= pipTopObj.y) {
+  if (x >= pipBotObj.x && y >= pipBotObj.y) { //What this is doing right now is finding if the ball has overlapped with the coordinates of the pipes.
+    console.log("Game Over!");                //It then starts printing 'Game Over!' to the console 200 times per second.
+  }                                           //It only stops printing once the ball enters where the gap for the next pipe will be.
+  if (x >= pipTopObj.y && y >= pipTopObj.y) { //This is really the best i've got right now.
     console.log("Game Over!")
   }
 }
