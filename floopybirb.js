@@ -12,7 +12,7 @@ var dy = 10; //Changing both of these numbers will also change the speed of the 
 // @param max [integer] {requires} [max > min] : tells the function when to stop;
 // @param min [integer] {requires} [min < max] : tells the function when to start;
 function exeptionsRand(intOrOut,max,min) {//this function allows you to go between the tubes.
-    var inBool = true;//this variable 
+    var inBool = true;//this variable
   while (inBool == true) {
   var randNumber = Math.floor(Math.random()*(max-min))+min;
   if (intOrOut == "in") {
@@ -32,7 +32,6 @@ function exeptionsRand(intOrOut,max,min) {//this function allows you to go betwe
   return randNumber;
 }
 
-var pipeWalls = {north:undefined,east:undefined,south:undefined,west:undefined};
 var pipx = exeptionsRand("in", myCanvas.width-30, 75); //I haven't seen any change after modifying these numbers.
 var pipy = exeptionsRand("in", myCanvas.height-35,90); //Nothing changes here as well.
 var pipBotObj = {width:45,height:450, x:pipx ,y:pipy,gap: 40}; //Sets the bottom pipe's width (which is always the same) and height (which will randomly change). Changing the 'gap' value will change how far apart the pipes are.
@@ -105,3 +104,13 @@ function keyPress(e) { //Function that will play out when a key is pressed (e is
       dy-=5; //Will make the ball jump a small distance.
     }
 }
+function collisionDetect() {
+  if (x >= pipBotObj.x && y >= pipBotObj.y) {
+    console.log("Game Over!");
+  }
+  if (x >= pipTopObj.y && y >= pipTopObj.y) {
+    console.log("Game Over!")
+  }
+}
+
+setInterval(collisionDetect, 10);
