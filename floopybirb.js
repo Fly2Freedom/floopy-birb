@@ -108,8 +108,8 @@ function collisionDetect() {
   if (x >= pipBotObj.x && y >= pipBotObj.y) { //What this is doing right now is finding if the ball has overlapped with the coordinates of the pipes.
     console.log("Game Over!");                //It then starts printing 'Game Over!' to the console 200 times per second.
   }                                           //It only stops printing once the ball enters where the gap for the next pipe will be.
-  if (x >= pipTopObj.y && y >= pipTopObj.y) { //This is really the best i've got right now.
-    console.log("Game Over!")
+  if (x >= pipTopObj.y && y >= pipTopObj.y) { //The pipes dont even have to be on the canvas, and the ball doesn't even have to be near the pipe's gap.
+    console.log("Game Over!")                 //It's really the best i've got right now.
   }
 }
 
