@@ -54,6 +54,28 @@ function drawPipes(){ //This function is for making sure the pipes aren't drawn 
   ctx.stroke();
 }
 
+function colision1(coord, pipe){
+  var inx = false;
+  var iny = false;
+  if ((corrd.x >= pipe.xmin) && (coorf.x <= pipe.xmax)){ inx = true}
+  if ((corrd.y >= pipe.ymin) && (coorf.y <= pipe.ymax)){ iny = true}
+  return (inx && iny);
+}
+
+function checkX(bigC, smallC, pipe) {
+  for (var i = smallC.x; i <= bigC.x; i++) {
+    if (coolision1({x: i, x: bigC.y}, pipe)) { return true; }
+  }
+  return false
+}
+
+function checkY(bigC, smallC, pipe) {
+  for (var i = smallC.y; i <= bigC.y; i++) {
+    if (coolision1({y: i, x: bigC.y}, pipe)) { return true; }
+  }
+  return false
+}
+
 var gravity = 0.2; //Sets the gravity pulling the ball to the ground.
 var damping = 0.01; //The rate at which the ball slows down.
 var traction = 0.95; //Will make the ball stop.
