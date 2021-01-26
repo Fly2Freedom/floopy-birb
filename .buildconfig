@@ -1,0 +1,10 @@
+[default]
+name=Default
+runtime=host
+config-opts=
+run-opts=
+prefix=/home/rhyliewilliams/.cache/gnome-builder/install/floopy-birb/host
+app-id=
+postbuild=
+prebuild=
+default=true

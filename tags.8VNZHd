@@ -1,0 +1,21 @@
+c	floopybirb.js	/^var c = document.getElementById("myCanvas");$/;"	v
+ctx	floopybirb.js	/^var ctx = c.getContext("2d");$/;"	v
+x	floopybirb.js	/^var x = myCanvas.width \/ 2; \/\/These 2 variables determine the starting circles location, in this case, the middle of the screen.$/;"	v
+y	floopybirb.js	/^var y = myCanvas.height \/ 2;$/;"	v
+dx	floopybirb.js	/^var dx = 10; \/\/These variables will be used later to change the position of the circle.$/;"	v
+dy	floopybirb.js	/^var dy = 10; \/\/Changing both of these numbers will also change the speed of the circle (in other words, how many units the circle moves per frame).$/;"	v
+exeptionsRand	floopybirb.js	/^function exeptionsRand(intOrOut,max,min) {\/\/this function allows you to go between the tubes.$/;"	f
+width	floopybirb.js	/^var pipBotObj = {width:45,height:450, x:pipx ,y:pipy,gap: 40}; \/\/Sets the bottom pipe's width (which is always the same) and height (which will randomly change). Changing the 'gap' value will change how far apart the pipes are.$/;"	p	class:pipBotObj
+height	floopybirb.js	/^var pipBotObj = {width:45,height:450, x:pipx ,y:pipy,gap: 40}; \/\/Sets the bottom pipe's width (which is always the same) and height (which will randomly change). Changing the 'gap' value will change how far apart the pipes are.$/;"	p	class:pipBotObj
+x	floopybirb.js	/^var pipBotObj = {width:45,height:450, x:pipx ,y:pipy,gap: 40}; \/\/Sets the bottom pipe's width (which is always the same) and height (which will randomly change). Changing the 'gap' value will change how far apart the pipes are.$/;"	p	class:pipBotObj
+y	floopybirb.js	/^var pipBotObj = {width:45,height:450, x:pipx ,y:pipy,gap: 40}; \/\/Sets the bottom pipe's width (which is always the same) and height (which will randomly change). Changing the 'gap' value will change how far apart the pipes are.$/;"	p	class:pipBotObj
+gap	floopybirb.js	/^var pipBotObj = {width:45,height:450, x:pipx ,y:pipy,gap: 40}; \/\/Sets the bottom pipe's width (which is always the same) and height (which will randomly change). Changing the 'gap' value will change how far apart the pipes are.$/;"	p	class:pipBotObj
+width	floopybirb.js	/^var pipTopObj = {width:45,height:pipy-(pipBotObj.gap*2), x:pipx,y: 0}; \/\/Does the same as above, but the pipe's height is based on the bottom pipes 'gap' value (in this case, the pipe's height will max out at 40 units above the bottom pipe).$/;"	p	class:pipTopObj
+height	floopybirb.js	/^var pipTopObj = {width:45,height:pipy-(pipBotObj.gap*2), x:pipx,y: 0}; \/\/Does the same as above, but the pipe's height is based on the bottom pipes 'gap' value (in this case, the pipe's height will max out at 40 units above the bottom pipe).$/;"	p	class:pipTopObj
+drawPipes	floopybirb.js	/^function drawPipes(){ \/\/This function is for making sure the pipes aren't drawn off-screen where they are not needed.$/;"	f
+checkX	floopybirb.js	/^function checkX(bigC, smallC, pipe) {$/;"	f	function:function
+checkY	floopybirb.js	/^function checkY(bigC, smallC, pipe) {$/;"	f	function:function
+drawCircle	floopybirb.js	/^function drawCircle() {$/;"	f	function:function
+draw	floopybirb.js	/^function draw() {$/;"	f	function:function
+keyPress	floopybirb.js	/^function keyPress(e) { \/\/Function that will play out when a key is pressed (e is just a placeholder)$/;"	f	function:function
+collisionDetect	floopybirb.js	/^function collisionDetect() {$/;"	f	function:function
