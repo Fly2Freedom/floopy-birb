@@ -104,7 +104,7 @@ drawPipes();
    }
 
   dy += gravity; //Adds the gravity value to the ball's dy value, giving it a artificial force of gravity.
-  
+
   //x += dx; is not needed because the ball will never hit the side walls.
 
   if (((y + dy) + ballSize) <= 300) {
@@ -128,10 +128,10 @@ function keyPress(e) { //Function that will play out when a key is pressed (e is
 }
 function collisionDetect() {
   if (x >= pipBotObj.x && y >= pipBotObj.y) { //What this is doing right now is finding if the ball has overlapped with the coordinates of the pipes.
-    console.log("Game Over!");                //It then starts printing 'Game Over!' to the console 200 times per second.
+    location.reload();                        //It retarts the game.
   }                                           //It only stops printing once the ball enters where the gap for the next pipe will be.
   if (x >= pipTopObj.y && y >= pipTopObj.y) { //The pipes dont even have to be on the canvas, and the ball doesn't even have to be near the pipe's gap.
-    console.log("Game Over!")                 //It's really the best i've got right now.
+    location.reload();                        //It's really the best i've got right now.
   }
 }
 
