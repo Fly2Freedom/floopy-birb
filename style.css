@@ -2,7 +2,7 @@ html, body {
   margin: 0; padding: 0;
 }
 .animatedbkg {
-  background: gray url(floopy-birb-background.jpg);
+  background: gray url(floopybirbbackground.jpg);
   width: 100%;
   margin: 0;
   text-align: center;
