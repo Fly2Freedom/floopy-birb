@@ -104,7 +104,7 @@ drawPipes();
    }
 
   dy += gravity; //Adds the gravity value to the ball's dy value, giving it a artificial force of gravity.
-
+  
   //x += dx; is not needed because the ball will never hit the side walls.
 
   if (((y + dy) + ballSize) <= 300) {
