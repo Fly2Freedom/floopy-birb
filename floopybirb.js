@@ -67,31 +67,29 @@ function makePipe(lowRectX, lowRectY, lowRectWid, lowRectHeight, upRectX, upRect
 @param upRectHeight {obj}- the height of the long, top tube
 */
 function collisionCheck(lowRectX, lowRectY, lowRectWid, lowRectHeight, upRectX, upRectY, upRectWid, upRectHeight){
-  if ((ball.xPos + ball.xMove + ball.rad > lowRectX) && (ball.xPos + ball.xMove + ball.rad < lowRectX + 2)) { //Every time the ball goes through a pipe gap.
-    score ++; //The score will go up 1
+  if ((ball.xPos + ball.xMove + ball.rad > lowRectX) && (ball.xPos + ball.xMove + ball.rad < lowRectX + 2)) {
+    score ++;
     console.log(score);
     document.getElementById('score').innerHTML = "Score = " + score;
   }
-
-  if ((ball.xPos + ball.xMove + ball.rad > upRectX) && (ball.yPos + ball.rad < upRectHeight) && (ball.rad + ball.xPos < upRectX + upRectWid)) { //If the ball's position overlaps with the corrdinates of the top pipes.
-    alert("GAME OVER! Your score is " + score + ". Refresh the screen to play again."); //The game will end, and the score counter will be displayed.
+  if ((ball.xPos + ball.xMove + ball.rad > upRectX) && (ball.yPos + ball.rad < upRectHeight) && (ball.rad + ball.xPos < upRectX + upRectWid)) {
+    alert("GAME OVER! Your score is " + score + ". Refresh the screen to play again.");
   }
   if ((ball.yPos + ball.yMove - ball.rad < upRectHeight) && (ball.xPos + ball.rad < upRectWid + upRectX + 50) && (ball.rad + ball.xPos > upRectX)) {
     alert("GAME OVER! Your score is " + score + ". Refresh the screen to play again.");
   }
-  if ((ball.xPos + ball.xMove + ball.rad > lowRectX) && (ball.yPos + ball.rad > lowRectY) && (ball.rad + ball.xPos < lowRectX + lowRectWid)) { //If the ball's position overlaps with the corrdinates of the bottom pipes.
+  if ((ball.xPos + ball.xMove + ball.rad > lowRectX) && (ball.yPos + ball.rad > lowRectY) && (ball.rad + ball.xPos < lowRectX + lowRectWid)) {
     alert("GAME OVER! Your score is " + score + ". Refresh the screen to play again.");
   }
   if ((ball.yPos + ball.yMove + ball.rad > lowRectY) && (ball.xPos + ball.rad < lowRectWid + lowRectX + 50) && (ball.rad + ball.xPos > lowRectX)) {
     alert("GAME OVER! Your score is " + score + ". Refresh the screen to play again.");
   }
 }
-
 function draw() {
   ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-  makePipe(rectLower.xPos, rectLower.yPos, rectLower.width, rectLower.height, rectUpper.xPos, rectUpper.yPos, rectUpper.width, rectUpper.height); //This will actually draw the pipe, and will be used in a SetInterval.
-  if (timer == 300) { //When you start the game, a timer will count to 300. Once the timer hits 300...
-    var chance = Math.floor(Math.random() * (1 - 4) + 4); //The pipe gap's location will be randomly generated.
+  makePipe(rectLower.xPos, rectLower.yPos, rectLower.width, rectLower.height, rectUpper.xPos, rectUpper.yPos, rectUpper.width, rectUpper.height);
+  if (timer == 300) {
+    var chance = Math.floor(Math.random() * (1 - 4) + 4);
     if (chance == 1) {
       var rectHUp = Math.floor(Math.random() * (190 - 150) + 150);
       var rectHLow = Math.floor(Math.random() * (190 - 150) + 150);
@@ -115,23 +113,6 @@ function draw() {
     rectArray[i].xPosU --;
   }
   drawCircle();
-
-  if (ball.xPos + ball.xMove > c.width - ball.rad || ball.xPos + ball.xMove < ball.rad) { //When the ball's radius is greator or equal to the location of the walls of the canvas...
-    ball.xMove = -ball.xMove; //The ball will bounce the other way.opposite direction.
-  if (ball.yPos + ball.yMove > c.height - ball.rad || ball.yPos + ball.yMove < ball.rad) { //When the ball's radius is greater or equal to the location of the floor of the canvas...
-    ball.yMove = -ball.yMove * damping; //The ball will bounce the opposite direction.
-  }
-  ball.yMove += gravity;  //This just adds an artificial gravity to the ball, making it fall slower.
-  ball.xPos = 250; //The ball's position on the canvas is set to a constant 250.
-  if (((ball.yPos + ball.yMove) + ball.rad) <= c.height) {
-    ball.yPos += ball.yMove;
-  }
-  for (var i = 0; i < rectArray.length; i++) { //This makes it so that collision is always being checked.
-    collisionCheck(rectArray[i].xPosL, rectArray[i].yPosL, rectArray[i].widthL, rectArray[i].heightL, rectArray[i].xPosU, rectArray[i].yPosU, rectArray[i].widthU, rectArray[i].heightU);
-  }
-  if (ball.yPos + ball.yMove > c.height - ball.rad || ball.yPos + ball.yMove < ball.rad) {
-    ball.yMove = -ball.yMove * damping;
-
   if (ball.xPos + ball.xMove > c.width - ball.rad || ball.xPos + ball.xMove < ball.rad) {
     ball.xMove = -ball.xMove;
   }
@@ -146,18 +127,17 @@ function draw() {
   for (var i = 0; i < rectArray.length; i++) {
     collisionCheck(rectArray[i].xPosL, rectArray[i].yPosL, rectArray[i].widthL, rectArray[i].heightL, rectArray[i].xPosU, rectArray[i].yPosU, rectArray[i].widthU, rectArray[i].heightU);
   }
-
-  timer ++; //This makes the timer go up by one every frame.
+  timer ++;
 }
 
 setInterval(draw, 10);
 
-document.addEventListener("keydown", makeBounce); //This is looking for a keypress.
+document.addEventListener("keydown", makeBounce);
 function makeBounce(e) {
-  if (e.key == " ") { //When a key is pressed... (the empty string being the spacebar)
-    ball.yMove -= 5; //The ball will jump a small distance.
+  if (e.key == " ") {
+    ball.yMove -= 5;
   }
   if (e.key == "r") {
-    ball.xMove = -ball.xMove;
+    ball.xMove = -ball.xMove; 
   }
 }
