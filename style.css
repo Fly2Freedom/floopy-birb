@@ -1,3 +1,14 @@
-canvas {
-  background-image: url("floopybirbbackground.jpg");
+@keyframes moveBackground {
+  from {background-position: 1000px 0px;}
+  to {background-position: 0px 0px;}
+}
+
+#myCanvas {
+  border-style: solid;
+  align-self: center;
+  background-image: url("flappy-bird.gif");
+  background-position: 0px 0px;
+  background-size: 100% 118%;
+  background-repeat: repeat-x;;
+  animation: moveBackground 50s linear infinite;
 }
