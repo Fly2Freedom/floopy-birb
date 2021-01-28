@@ -109,13 +109,14 @@ function draw() {
     rectArray.push(newRect);
     timer = 0;
   }
+}
   for (var i = 0; i < rectArray.length; i++) {
     makePipe(rectArray[i].xPosL, rectArray[i].yPosL, rectArray[i].widthL, rectArray[i].heightL, rectArray[i].xPosU, rectArray[i].yPosU, rectArray[i].widthU, rectArray[i].heightU);
     rectArray[i].xPosL --;
     rectArray[i].xPosU --;
   }
   drawCircle();
-<<<<<<< HEAD
+
   if (ball.xPos + ball.xMove > c.width - ball.rad || ball.xPos + ball.xMove < ball.rad) { //When the ball's radius is greator or equal to the location of the walls of the canvas...
     ball.xMove = -ball.xMove; //The ball will bounce the other way.opposite direction.
   if (ball.yPos + ball.yMove > c.height - ball.rad || ball.yPos + ball.yMove < ball.rad) { //When the ball's radius is greater or equal to the location of the floor of the canvas...
@@ -129,7 +130,7 @@ function draw() {
   for (var i = 0; i < rectArray.length; i++) { //This makes it so that collision is always being checked.
     collisionCheck(rectArray[i].xPosL, rectArray[i].yPosL, rectArray[i].widthL, rectArray[i].heightL, rectArray[i].xPosU, rectArray[i].yPosU, rectArray[i].widthU, rectArray[i].heightU);
   }
-=======
+
   if (ball.xPos + ball.xMove > c.width - ball.rad || ball.xPos + ball.xMove < ball.rad) {
     ball.xMove = -ball.xMove;
   }
@@ -144,7 +145,7 @@ function draw() {
   for (var i = 0; i < rectArray.length; i++) {
     collisionCheck(rectArray[i].xPosL, rectArray[i].yPosL, rectArray[i].widthL, rectArray[i].heightL, rectArray[i].xPosU, rectArray[i].yPosU, rectArray[i].widthU, rectArray[i].heightU);
   }
->>>>>>> 94bc42d008039d64c50c43363eece4c408d83635
+
   timer ++; //This makes the timer go up by one every frame.
 }
 
