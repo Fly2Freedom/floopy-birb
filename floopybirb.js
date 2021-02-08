@@ -12,13 +12,30 @@ var rectArray = []; //Will bbe used later to draw our pipes.
 var timer = 0; //Will be used later to spawn the pipes at a specific time.
 var score = 0; //Will increment every time you go through a pipe.
 
+var birb = new Image();
+birb.src = "birb(1).png";
+birb.width = 10;
+birb.height = 10;
+ctx.drawImage(birb, 150,150, 10, 10);
+ctx.fill();
+
+
+
+
 function drawCircle() { //This functil will draw the cricle based on the ball object params above.
   ctx.beginPath();
-  ctx.arc(ball.xPos, ball.yPos, ball.rad, 0, Math.PI*2); //Draws the circle using the ball object.
+  ctx.drawImage(birb, ball.xPos, ball.yPos, 40, 40);
+
   ctx.fillStyle = "red"; //Makes the ball red.
   ctx.fill();
   ctx.stroke();
 }
+
+
+
+
+
+
 
 /* makePipe(lowRectX, lowRectY, lowRectWid, lowRectHeight, upRectX, upRectY, upRectWid, upRectHeight)
 @param lowRectX {obj}- x position of the long, bottom tube
