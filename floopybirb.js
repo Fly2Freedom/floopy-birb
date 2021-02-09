@@ -11,18 +11,18 @@ var rectUpper = {xPos: c.width-rectWidth, yPos: 0, width: rectWidth, height: rec
 var rectArray = []; //Will bbe used later to draw our pipes.
 var timer = 0; //Will be used later to spawn the pipes at a specific time.
 var score = 0; //Will increment every time you go through a pipe.
+var difficulty = 0;
 
-window.addEventListener("keydown", ev => {
-  if (ev.keyCode === 32) {
-    var startmenu = document.getElementById("startScreen");
-    startmenu.remove();
+window.addEventListener("keydown", ev => { //Looks for a keypress, and also looks for a specific keycode
+  if (ev.keyCode === 32) { //If the keycode is 32, which in this case is the spacebar...
+    var startmenu = document.getElementById("startScreen"); //The startmenu is called...
+    startmenu.remove(); //And then the start menu is removed, 'unpausing' the game.
 
 var birb = new Image(); //makes bird image
 birb.src = "birb(1).png"; //gets bird image
 birb.width = 10;  //bird picture width
 birb.height = 10;  //bird picture height
 ctx.drawImage(birb, 150,150, 10, 10); //draw bird onto canvas
-
 
 function drawCircle() { //This functil will draw the cricle based on the ball object params above.
   ctx.beginPath();
