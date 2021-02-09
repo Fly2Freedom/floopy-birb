@@ -8,17 +8,9 @@ var rectWidth = Math.floor(Math.random() * (125 - 100) + 100); //Randomly genera
 var rectHeight = Math.floor(Math.random() * (190 - 170) + 170); //Randomly generates a number which will determine the height of the pipes.
 var rectLower = {xPos: c.width-rectWidth, yPos: c.height-rectHeight, width: rectWidth, height: rectHeight};
 var rectUpper = {xPos: c.width-rectWidth, yPos: 0, width: rectWidth, height: rectHeight};
-var rectArray = []; //Will bbe used later to draw our pipes.
+var rectArray = []; //Will be used later to draw our pipes.
 var timer = 0; //Will be used later to spawn the pipes at a specific time.
 var score = 0; //Will increment every time you go through a pipe.
-
-
-
-
-window.addEventListener("keyup", ev => {
-  if (ev.keyCode === 32) {
-    var startmenu = document.getElementById("startScreen");
-    startmenu.remove();
 
 var birb = new Image(); //makes bird image
 birb.src = "birb(1).png"; //gets bird image
@@ -26,18 +18,11 @@ birb.width = 10;  //bird picture width
 birb.height = 10;  //bird picture height
 ctx.drawImage(birb, 150,150, 10, 10); //draw bird onto canvas
 
-
-function drawCircle() { //This functil will draw the cricle based on the ball object params above.
+function drawCircle() { //This function will draw the cricle based on the ball object params above.
   ctx.beginPath();
   ctx.drawImage(birb, ball.xPos, ball.yPos, 40, 40);
   ctx.stroke();
 }
-
-
-
-
-
-
 
 /* makePipe(lowRectX, lowRectY, lowRectWid, lowRectHeight, upRectX, upRectY, upRectWid, upRectHeight)
 @param lowRectX {obj}- x position of the long, bottom tube
@@ -162,6 +147,10 @@ function makeBounce(e) { //This function will make the ball jump.
   }
 }
 
+document.addEventListener("keydown", ev => { //Looks for when a key is pressed, and looks for a specific keycode.
+  if (ev.keyCode === 32) { //If the keycode is 32, this being the spacebar...
+    var startmenu = document.getElementById("startScreen"); //The startmenu is called
+    startmenu.remove(); //And then the startmenu is removed.
 
 }
 });
