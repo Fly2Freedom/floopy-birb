@@ -16,7 +16,7 @@ var score = 0; //Will increment every time you go through a pipe.
 
 
 window.addEventListener("keyup", ev => {
-  if (ev.keyCode === 38) {
+  if (ev.keyCode === 32) {
     var startmenu = document.getElementById("startScreen");
     startmenu.remove();
 
