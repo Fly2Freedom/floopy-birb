@@ -12,3 +12,34 @@
   background-repeat: repeat-x;;
   animation: moveBackground 50s linear infinite;
 }
+
+
+#startScreen {
+  margin:auto;
+  margin-top: 50px;
+  position:absolute;
+  left:350px;
+  top: 100px;
+  width: 300px;
+  height: 200px;
+  background-color: whitesmoke;
+  color: #333;
+  text-align: center;
+  border: 8px solid;
+  border-radius: 10px;
+  box-shadow: 0 1px 32px white;
+  font-family:sans-serif;
+}
+
+#startScreen div {
+  height: 50%;
+}
+
+#startScreen h1 {
+  position:absolute;
+  width: 100%;
+  color: #222;
+  font-size: 40px;
+  text-shadow: 0 1px 2px;
+  font-family: sans-serif;
+}

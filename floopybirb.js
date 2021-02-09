@@ -12,6 +12,14 @@ var rectArray = []; //Will bbe used later to draw our pipes.
 var timer = 0; //Will be used later to spawn the pipes at a specific time.
 var score = 0; //Will increment every time you go through a pipe.
 
+
+
+
+window.addEventListener("keyup", ev => {
+  if (ev.keyCode === 38) {
+    var startmenu = document.getElementById("startScreen");
+    startmenu.remove();
+
 var birb = new Image(); //makes bird image
 birb.src = "birb(1).png"; //gets bird image
 birb.width = 10;  //bird picture width
@@ -153,3 +161,7 @@ function makeBounce(e) { //This function will make the ball jump.
     ball.xMove = -ball.xMove;
   }
 }
+
+
+}
+});
