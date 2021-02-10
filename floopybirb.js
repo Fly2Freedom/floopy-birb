@@ -11,9 +11,10 @@ var rectUpper = {xPos: c.width-rectWidth, yPos: 0, width: rectWidth, height: rec
 var rectArray = []; //Will bbe used later to draw our pipes.
 var timer = 0; //Will be used later to spawn the pipes at a specific time.
 var score = 0; //Will increment every time you go through a pipe.
+var diffTimer = 0; //Will be used to determine the difficulty of the game. At a specific time, pipes will be drawn more frequently.
 
 window.addEventListener("keydown", ev => { //Looks for a keypress, and also looks for a specific keycode
-  if (ev.keyCode === 32) { //If the keycode is 32, which in this case is the spacebar...
+  if (ev.keyCode === 13) { //If the keycode is 32, which in this case is the enter key...
     var startmenu = document.getElementById("startScreen"); //The startmenu is called...
     startmenu.remove(); //And then the start menu is removed, 'unpausing' the game.
 
@@ -119,7 +120,7 @@ function draw() { //This function will actually draw the ball and the pipe. It w
   }
   for (var i = 0; i < rectArray.length; i++) {
     makePipe(rectArray[i].xPosL, rectArray[i].yPosL, rectArray[i].widthL, rectArray[i].heightL, rectArray[i].xPosU, rectArray[i].yPosU, rectArray[i].widthU, rectArray[i].heightU);
-    rectArray[i].xPosL --;
+    rectArray[i].xPosL --; //Gives the illusion of the pipes moving to the left.
     rectArray[i].xPosU --;
   }
   drawCircle();
@@ -138,6 +139,10 @@ function draw() { //This function will actually draw the ball and the pipe. It w
     collisionCheck(rectArray[i].xPosL, rectArray[i].yPosL, rectArray[i].widthL, rectArray[i].heightL, rectArray[i].xPosU, rectArray[i].yPosU, rectArray[i].widthU, rectArray[i].heightU);
   }
   timer ++; //The timer will go up by one every time the draw function loops.
+  diffTimer++; //diffTimer will increment to activate hardmode.
+  if (diffTimer == 10000) { //If the diffTimer is at 10000...
+    setInterval(draw, 9); //The game will speed up dramatically.
+  }
 }
 
 setInterval(draw, 10); //Makes sure that the draw function loops.
