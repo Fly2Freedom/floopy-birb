@@ -23,7 +23,7 @@ birb.width = 10;  //bird picture width
 birb.height = 10;  //bird picture height
 ctx.drawImage(birb, 150, 150, 10, 10); //draw bird onto canvas
 
-function drawCircle() { //This functil will draw the cricle based on the ball object params above.
+function drawCircle() { //This function will draw the cricle based on the ball object params above.
   ctx.beginPath();
   ctx.drawImage(birb, ball.xPos, ball.yPos, 40, 40);
   ctx.stroke();
