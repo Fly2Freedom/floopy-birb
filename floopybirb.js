@@ -14,9 +14,9 @@ var score = 0; //Will increment every time you go through a pipe.
 var diffTimer = 0; //Will be used to determine the difficulty of the game. At a specific time, pipes will be drawn more frequently.
 
 window.addEventListener("keydown", ev => { //Looks for a keypress, and also looks for a specific keycode
-  if (ev.keyCode === 13) { //If the keycode is 32, which in this case is the enter key...
+  if (ev.keyCode === 13) { //If the keycode is 13, which in this case is the enter key...
     var startmenu = document.getElementById("startScreen"); //The startmenu is called...
-    startmenu.remove(); //And then the start menu is removed, 'unpausing' the game.
+    startmenu.remove(); //And then the start menu is removed from the screen, and 'unpauses' the game.
 
 var birb = new Image(); //makes bird image
 birb.src = "birb(1).png"; //gets bird image
